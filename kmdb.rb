@@ -345,3 +345,10 @@ puts ""
 
 # Query the actor data and loop through the results to display the agent's list of represented actors output.
 # TODO!
+agents = Agent.all 
+for agent in agents 
+  represented_actors = Actor.where({"agent_id" => agent["id"]}) 
+    for actor in represented_actors
+      puts "#{actor["name"]}" 
+    end
+end
