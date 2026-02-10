@@ -103,6 +103,8 @@ studio = Studio.new
 studio["name"] = "Warner Bros."
 studio.save
 
+puts "There are #{Studio.all.count} studios"
+
 ## Movies
 movie = Movie.new
 movie["title"] = "Batman Begins"
@@ -125,6 +127,7 @@ movie["rated"] = "PG-13"
 movie["studio_id"] = Studio.find_by({"name" => "Warner Bros."})["id"]
 movie.save
 
+puts "There are #{Movie.all.count} movies"
 
 ## Actors
 actor = Actor.new
@@ -173,9 +176,9 @@ actor["name"] = "Anne Hathaway"
 actor.save
 
 ##Roles
-batman_begins = Movie.find_by({"name" => "Batman_Begins"})
-dark_knight = Movie.find_by({"name" => "The Dark Knight"})
-dark_knight_rises = Movie.find_by({"name" => "The Dark Knight Rises"})
+batman_begins = Movie.find_by({"title" => "Batman_Begins"})
+dark_knight = Movie.find_by({"title" => "The Dark Knight"})
+dark_knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
 
 #Storing actors in variables to help save time and redundancy for roles across all movies
 bale = Actor.find_by({"name" => "Christian Bale"})
