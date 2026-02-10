@@ -176,7 +176,7 @@ actor["name"] = "Anne Hathaway"
 actor.save
 
 ##Roles
-batman_begins = Movie.find_by({"title" => "Batman_Begins"})
+batman_begins = Movie.find_by({"title" => "Batman Begins"})
 dark_knight = Movie.find_by({"title" => "The Dark Knight"})
 dark_knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
 
