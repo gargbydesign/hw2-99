@@ -175,6 +175,8 @@ actor = Actor.new
 actor["name"] = "Anne Hathaway"
 actor.save
 
+puts "There are #{Actor.all.count} actors"
+
 ##Roles
 batman_begins = Movie.find_by({"title" => "Batman Begins"})
 dark_knight = Movie.find_by({"title" => "The Dark Knight"})
@@ -285,7 +287,22 @@ role["actor_id"] = hathaway["id"]
 role["character_name"] = "Selina Kyle"
 role.save
 
+puts "There are #{Role.all.count} roles"
+
+#Agents
 agent = Agent.new
+agent["name"] = "Amit Garg"
+agent.save
+
+#update actor Christian Bale to have agent id
+bale = Actor.find_by({"name" => "Christian Bale"})
+amit = Agent.find_by({"name" => "Amit Garg"})
+bale["agent_id"] = amit["id"]
+bale.save
+
+p amit.inspect
+p bale.inspect
+
  
 # Prints a header for the movies output
 puts "Movies"
@@ -294,6 +311,15 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+movies = Movie.all
+for movie in movies
+  studio = Studio.find_by({"id" => movie["studio_id"]})
+  title = movie["title"]
+  year = movie["year_released"]
+  rated = movie["rated"]
+  studio_name = studio["name"]
+  puts "#{title}  #{year}  #{rated}  #{studio_name}"
+end
 
 # Prints a header for the cast output
 puts ""
