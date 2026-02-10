@@ -350,7 +350,7 @@ agents = Agent.all
 for agent in agents 
   represented_actors = Actor.where({"agent_id" => agent["id"]}) 
     for actor in represented_actors
-      puts "#{actor["name"]}" 
+      puts "#{actor["name"]} represented by #{agent["name"]}" 
     end
 end
 
