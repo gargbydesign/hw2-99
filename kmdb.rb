@@ -330,6 +330,13 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
+all_cast = Role.all
+for role in all_cast
+  movie = Movie.find_by({"id" => role["movie_id"]})
+  actor = Actor.find_by({"id" => role["actor_id"]})
+  puts "#{movie["title"]} #{actor["name"]}  #{role["character_name"]}"
+end
+
 # Prints a header for the agent's list of represented actors output
 puts ""
 puts "Represented by agent"
